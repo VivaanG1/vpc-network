@@ -1,4 +1,4 @@
-name: Deploy_to_test
+name: Deploy
 
 on:
   push:
@@ -35,8 +35,7 @@ jobs:
           
       - name: Terraform Init
         run: |
-          terraform init
-          
+          terraform init -backend-config backend-config-test.tfvars
       - name: Terraform Validate
         run: |
           terraform validate
@@ -49,6 +48,6 @@ jobs:
         run: |
           terraform plan
 
-      - name: Terraform execute
+      - name: Terraform Deploy
         run: |
-          terraform deploy -auto-approve
+          terraform apply -auto-approve
