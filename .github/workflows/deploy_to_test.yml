@@ -1,7 +1,7 @@
-name: PR Checks
+name: Deploy_to_test
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
