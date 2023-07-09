@@ -95,3 +95,38 @@ resource "aws_route" "private_default_route" {
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = aws_nat_gateway.nat_gateway.id
 }
+
+resource "aws_iam_role" "flow_log_role" {
+  name               = "${var.environment}-sdp-flow-log-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "flow_log_policy_attachment" {
+  role       = aws_iam_role.flow_log_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSFlowLogFullAccess"
+}
+
+resource "aws_cloudwatch_log_group" "flow_log_group" {
+  name = "${var.environment}-sdp-flow-logs"
+}
+
+resource "aws_flow_log" "flow_log" {
+  depends_on      = [aws_vpc.vpc]
+  iam_role_arn    = aws_iam_role.flow_log_role.arn
+  log_destination = aws_cloudwatch_log_group.flow_log_group.arn
+  traffic_type    = "ALL"
+  vpc_id          = aws_vpc.vpc.id
+}
