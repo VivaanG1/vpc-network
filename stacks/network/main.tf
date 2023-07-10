@@ -62,7 +62,7 @@ resource "aws_eip" "nat_eip" {
 # Create Public Route Tables
 resource "aws_route_table" "public_route_table" {
   count    = 2
-  vpc_id   = aws_vpc.my_vpc.id
+  vpc_id   = aws_vpc.vpc.id
 
   tags = {
     Name = "PublicRouteTable-${count.index + 1}"
@@ -72,7 +72,7 @@ resource "aws_route_table" "public_route_table" {
 # Create Private Route Tables
 resource "aws_route_table" "private_route_table" {
   count    = 2
-  vpc_id   = aws_vpc.my_vpc.id
+  vpc_id   = aws_vpc.vpc.id
 
   tags = {
     Name = "PrivateRouteTable-${count.index + 1}"
