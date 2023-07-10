@@ -1,5 +1,5 @@
 variable "environment" {
   description = "VPC Environment"
   type        = string
-  default     = "slice"
+  default     = "mustard01"
 }
