@@ -101,6 +101,14 @@ resource "aws_route" "private_default_route" {
   nat_gateway_id        = aws_nat_gateway.nat_gateway[count.index].id
 }
 
+# Create Internet Gateway Route in Public Route Tables
+resource "aws_route" "public_internet_gateway_route" {
+  count                 = 2
+  route_table_id        = aws_route_table.public_route_table[count.index].id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id            = aws_internet_gateway.igw.id
+}
+
 resource "aws_cloudwatch_log_group" "flow_log_group" {
   name = "${var.environment}-sdp-flow-logs"
 }
