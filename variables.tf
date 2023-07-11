@@ -7,11 +7,11 @@ variable "environment" {
 variable "vpc_id" {
   description = "VPC id for Airflow"
   type        = string
-  default     = "vpc-07b36320d71a67f27"
+  default     = "vpc-0833b52c46a47ed47"
 }
 
 variable "private_subnet_ids" {
   description = "2 Private Subnet id for Airflow"
   type        = list(string)
-  default     = ["subnet-0fea25e449326e702", "subnet-0aadb1900b3014c14"]
+  default     = ["subnet-066a3993547bf19ea", "subnet-01c366de88e9886cb"]
 }
