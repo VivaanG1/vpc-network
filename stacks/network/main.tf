@@ -61,8 +61,8 @@ resource "aws_eip" "nat_eip" {
 
 # Create Public Route Tables
 resource "aws_route_table" "public_route_table" {
-  count    = 2
-  vpc_id   = aws_vpc.vpc.id
+  count  = 2
+  vpc_id = aws_vpc.vpc.id
 
   tags = {
     Name = "PublicRouteTable-${count.index + 1}"
@@ -71,8 +71,8 @@ resource "aws_route_table" "public_route_table" {
 
 # Create Private Route Tables
 resource "aws_route_table" "private_route_table" {
-  count    = 2
-  vpc_id   = aws_vpc.vpc.id
+  count  = 2
+  vpc_id = aws_vpc.vpc.id
 
   tags = {
     Name = "PrivateRouteTable-${count.index + 1}"
@@ -95,18 +95,18 @@ resource "aws_route_table_association" "private_subnet_association" {
 
 # Create Default Routes in Private Route Tables via NAT Gateways
 resource "aws_route" "private_default_route" {
-  count                 = 2
-  route_table_id        = aws_route_table.private_route_table[count.index].id
+  count                  = 2
+  route_table_id         = aws_route_table.private_route_table[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  nat_gateway_id        = aws_nat_gateway.nat_gateway[count.index].id
+  nat_gateway_id         = aws_nat_gateway.nat_gateway[count.index].id
 }
 
 # Create Internet Gateway Route in Public Route Tables
 resource "aws_route" "public_internet_gateway_route" {
-  count                 = 2
-  route_table_id        = aws_route_table.public_route_table[count.index].id
+  count                  = 2
+  route_table_id         = aws_route_table.public_route_table[count.index].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id            = aws_internet_gateway.igw.id
+  gateway_id             = aws_internet_gateway.igw.id
 }
 
 resource "aws_cloudwatch_log_group" "flow_log_group" {
