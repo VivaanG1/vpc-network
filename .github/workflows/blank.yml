@@ -35,7 +35,7 @@ jobs:
           
       - name: Terraform Init
         run: |
-          terraform init -backend-config backend-config-test.tfvars
+          terraform init -backend-config backend-config-test.tfvars -upgrade
       - name: Terraform Validate
         run: |
           terraform validate
