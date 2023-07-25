@@ -24,7 +24,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@v2.0.0
         with:
-          role-to-assume: "arn:aws:iam::856970428305:role/vpc-network-git-role"
+          role-to-assume: "arn:aws:iam::609683150604:role/oidcrolegithub"
           role-session-name: aws-terraform-state-session
           aws-region: "eu-west-1"      
       
