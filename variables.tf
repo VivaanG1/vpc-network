@@ -1,7 +1,7 @@
 variable "environment" {
   description = "VPC Environment"
   type        = string
-  default     = "mustard2023"
+  default     = "yellow-mustard2023"
 }
 
 variable "vpc_id" {
