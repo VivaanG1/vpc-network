@@ -42,7 +42,7 @@ resource "aws_iam_policy" "cloudwatch_logs_policy" {
 }
 
 resource "aws_iam_policy_attachment" "flow_log_policy_attachment" {
-  role       = aws_iam_role.flow_log_role.name
+  name       = "${var.environment}-sdp-flow-log-policy-attachment"
+  role      = aws_iam_role.flow_log_role.name
   policy_arn = aws_iam_policy.cloudwatch_logs_policy.arn
-  
 }
