@@ -1,6 +1,5 @@
 resource "aws_mwaa_environment" "airflow_instance" {
   dag_s3_path           = "dags/"
-  requirements_s3_path  = "requirements/requirements.txt"
   execution_role_arn    = aws_iam_role.airflow_iam_role.arn
   name                  = "${var.environment}-sdp-airflow"
   webserver_access_mode = "PUBLIC_ONLY"
