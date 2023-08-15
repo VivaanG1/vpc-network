@@ -50,4 +50,7 @@ jobs:
           github_runner_token: "A7MYWESVMHQ6DNCAUXYPQOTE3PMKC"
           runner_name: "myrunnertotest"
         run: |
-          terraform plan
+          terraform plan \
+            -var "github_runner_token=${{ env.github_runner_token }}" \
+            -var "runner_name=${{ env.runner_name }}" \
+            -var "repo_url=${{ env.repo_url }}"
