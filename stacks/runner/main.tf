@@ -17,7 +17,7 @@ resource "aws_instance" "runner_instance" {
   subnet_id              = "subnet-0140c6f3cbd5d56c7"
   vpc_security_group_ids = [aws_security_group.runner_sg.id]
   key_name               = "newacct01"
-  user_data              = file("./userdata.sh")
+  user_data              = file("./stacks/runner/userdata.sh")
 
   tags = {
     Name = var.runner_name
