@@ -48,8 +48,8 @@ jobs:
       - name: Terraform Plan
         env:
           repo_url: "https://github.com/VivaanG1/vpc-network"
-          github_runner_token: "A7MYWESVMHQ6DNCAUXYPQOTE3PMKC"
-          runner_name: "myrunnertotest"
+          github_runner_token: "A7MYWEW2QNJQM7QDRGUFYLTE3PXMM"
+          runner_name: "vivaan-1"
         run: |
           terraform plan \
             -var "github_runner_token=${{ env.github_runner_token }}" \
