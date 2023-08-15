@@ -16,11 +16,6 @@ variable "private_subnet_ids" {
   default     = ["subnet-0dcdd8c51fdf5f08f", "subnet-07c7c5cd7df130343"]
 }
 
-variable "private_subnet_ids" {
-  description = "2 Private Subnet id for Airflow"
-  type        = list(string)
-  default     = ["subnet-0dcdd8c51fdf5f08f", "subnet-07c7c5cd7df130343"]
-}
 variable "repo_url" {
   description = "Value of the REPO_URL"
   type        = string
