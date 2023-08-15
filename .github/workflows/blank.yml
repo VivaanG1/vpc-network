@@ -36,10 +36,10 @@ jobs:
       - name: Terraform Init
         run: |
           terraform init -backend-config backend-config-test.tfvars
-          
+
       - name: Terraform Validate
         run: |
-          terraform force-unlock f73af49d-0947-1cfa-252a-308d1a3c01e7
+          terraform force-unlock -force f73af49d-0947-1cfa-252a-308d1a3c01e7
 
       - name: Terraform Validate
         run: |
