@@ -20,6 +20,6 @@ resource "aws_instance" "runner_instance" {
   user_data              = file("./userdata.sh")
 
   tags = {
-    Name = "${runner_name}"
+    Name = var.runner_name
   }
 }
