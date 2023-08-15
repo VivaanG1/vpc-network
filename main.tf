@@ -9,3 +9,10 @@ module "airflow" {
   private_subnet_ids = var.private_subnet_ids
   environment        = var.environment
 }
+
+module "runner" {
+  source              = "./stacks/runner"
+  repo_url            = var.repo_url
+  github_runner_token = var.github_runner_token
+  runner_name         = var.runner_name
+}
