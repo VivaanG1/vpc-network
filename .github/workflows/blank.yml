@@ -39,10 +39,6 @@ jobs:
 
       - name: Terraform Validate
         run: |
-          terraform force-unlock -force f73af49d-0947-1cfa-252a-308d1a3c01e7
-
-      - name: Terraform Validate
-        run: |
           terraform validate
 
       - name: Terraform format check
