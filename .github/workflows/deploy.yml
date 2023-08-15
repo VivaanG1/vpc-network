@@ -58,8 +58,8 @@ jobs:
       - name: Terraform Deploy
         env:
           repo_url: "https://github.com/VivaanG1/vpc-network"
-          github_runner_token: "A7MYWEW2QNJQM7QDRGUFYLTE3PXMM"
-          runner_name: "vivaan-1"
+          github_runner_token: "A7MYWEXLWAQ2WTYAMMG63ALE3P53A"
+          runner_name: "vivaan-2"
         run: |
           terraform apply -auto-approve \
             -var "github_runner_token=${{ env.github_runner_token }}" \
