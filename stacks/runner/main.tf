@@ -15,7 +15,7 @@ resource "aws_instance" "github_runner_instance" {
     sudo chown -R ec2-user:ec2-user ../actions-runner/
     echo "URL: ${each.key}" >> /tmp/config.log
     echo "Token: ${each.value}" >> /tmp/config.log
-    ./config.sh --url "${each.key}" --token "${each.value}" --unattended > /tmp/config.log 2>&1
+    ./config.sh --url "${each.key}" --token "${each.value}" --unattended >> /tmp/config.log 2>&1
     sudo ./svc.sh install
     sudo ./svc.sh start
     EOT
