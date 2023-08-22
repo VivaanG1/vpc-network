@@ -14,6 +14,7 @@ resource "aws_instance" "github_runner_instance" {
     curl -o actions-runner-linux-arm64-2.308.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.308.0/actions-runner-linux-arm64-2.308.0.tar.gz
     tar xzf ./actions-runner-linux-arm64-2.308.0.tar.gz
     sudo chown -R ec2-user:ec2-user ../actions-runner/
+    chmod -R 777 ../actions-runner/
     ./config.sh --url "${each.key}" --token "${each.value}" --unattended
     sudo ./svc.sh install
     sudo ./svc.sh start
