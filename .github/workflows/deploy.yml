@@ -48,8 +48,8 @@ jobs:
         env:
           TF_VAR_github_repos: |-
             {
-              "https://github.com/VivaanG1/route53": "A7MYWEQ7TVH4JN4ZTZUCWBDE4SPEU",
-              "https://github.com/VivaanG1/vpc-network": "A7MYWESZ7L4GKEOU4RQG2VTE4SPA6"
+              "https://github.com/VivaanG1/route53": "A7MYWEX4UGTAQLNF24W4JYDE4S6IW",
+              "https://github.com/VivaanG1/vpc-network": "A7MYWEXTLH3PCTKHP4PHKCDE4S6MO"
             }
         run: |
           terraform plan
@@ -58,8 +58,8 @@ jobs:
         env:
           TF_VAR_github_repos: |-
             {
-              "https://github.com/VivaanG1/route53": "A7MYWEXKXHCY7OTBIHNPQN3E4S3PW",
-              "https://github.com/VivaanG1/vpc-network": "A7MYWEXXR22B447GYAG5MJDE4S3MM"
+              "https://github.com/VivaanG1/route53": "A7MYWEX4UGTAQLNF24W4JYDE4S6IW",
+              "https://github.com/VivaanG1/vpc-network": "A7MYWEXTLH3PCTKHP4PHKCDE4S6MO"
             }
         run: |
           terraform apply -auto-approve
