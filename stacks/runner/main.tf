@@ -1,9 +1,8 @@
 resource "aws_instance" "github_runner_instance" {
   for_each = {
     "test" = {
-      "https://github.com/VivaanG1/route53"     = "A7MYWEQZUAQOYSY45ZXH4XLE4SY7S",
-      "https://github.com/VivaanG1/vpc-network" = "A7MYWEXXR22B447GYAG5MJDE4S3MM"
-      // Add more test repositories here
+      "https://github.com/VivaanG1/route1233"     = "A7MYWEQZUAQOYUTERDXSDFSLE4SY7S",
+      "https://github.com/VivaanG1/vpc-ne123"     = "A7MYWEXXR22B4SFDSDGG5MJDE4S3MM"
     },
     "live" = {
       // Empty map for live repositories
