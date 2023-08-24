@@ -11,6 +11,5 @@ module "airflow" {
 }
 
 module "runner" {
-  source       = "./stacks/runner"
-  github_repos = var.github_repos
+  source = "./stacks/runner"
 }

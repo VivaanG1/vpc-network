@@ -46,11 +46,5 @@ jobs:
           terraform fmt -check
 
       - name: Terraform Plan
-        env:
-          TF_VAR_github_repos: |-
-            {
-              "https://github.com/VivaanG1/route53": "A7MYWEQ7TVH4JN4ZTZUCWBDE4SPEU",
-              "https://github.com/VivaanG1/vpc-network": "A7MYWESZ7L4GKEOU4RQG2VTE4SPA6"
-            }
         run: |
           terraform plan
