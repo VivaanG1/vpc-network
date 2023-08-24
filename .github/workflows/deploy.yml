@@ -45,21 +45,9 @@ jobs:
           terraform fmt -check
 
       - name: Terraform Plan
-        env:
-          TF_VAR_github_repos: |-
-            {
-              "https://github.com/VivaanG1/route53": "A7MYWEXZOFHTBIC4BOVUDUDE4TI7A",
-              "https://github.com/VivaanG1/vpc-network": "A7MYWESKN4IWRFW2EDSNO2DE4TI56"
-            }
         run: |
           terraform plan
 
       - name: Terraform Deploy
-        env:
-          TF_VAR_github_repos: |-
-            {
-              "https://github.com/VivaanG1/route53": "A7MYWEXZOFHTBIC4BOVUDUDE4TI7A",
-              "https://github.com/VivaanG1/vpc-network": "A7MYWESKN4IWRFW2EDSNO2DE4TI56"
-            }
         run: |
           terraform apply -auto-approve
